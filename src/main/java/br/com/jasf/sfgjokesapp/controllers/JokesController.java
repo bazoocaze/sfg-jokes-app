@@ -12,13 +12,12 @@ public class JokesController {
 	private JokesService jokesService;
 
 	public JokesController(JokesService jokesService) {
-		super();
 		this.jokesService = jokesService;
 	}
 
-	@RequestMapping(value = { "/", "" })
-	public String getRandomQuote(Model model) {
-		model.addAttribute("joke", jokesService.getRandomQuote());
+	@RequestMapping({ "/", "" })
+	public String getJoke(Model model) {
+		model.addAttribute("joke", jokesService.getJoke());
 		return "chucknorris";
 	}
 
